@@ -68,10 +68,13 @@ ul {
  
 }
 footer{
+  display: grid;
   width: 100vw;
   height: 80px;
   background-color: var(--color-700);
   color: var(--color-200);
+  align-items: center;
+  justify-items: center;
 
 
 }
