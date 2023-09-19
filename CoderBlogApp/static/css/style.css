@@ -1,0 +1,77 @@
+:root {
+    --color-200: hsl(246, 8%, 80%);
+    --color-500: hsl(246, 8%, 50%);
+    --color-700: hsl(246, 8%, 30%);
+    --acent-color-200: hsl(345, 54%, 80%);
+    --acent-color-500: hsl(345, 54%, 50%);
+    --acent-color-700: hsl(345, 54%, 30%);
+    --Complement-acent-color-200: hsl(142, 22%, 80%);
+    --Complement-acent-color-500: hsl(142, 22%, 50%);
+    --Complement-acent-color-700: hsl(142, 22%, 30%);
+}
+    
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: var(--color-700);
+  color: var(--color-200)
+}
+
+.logo {
+  flex: 1;
+}
+
+ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.buscador{
+  align-items: center;
+  background-color: var(--color-200);
+  padding: .5rem .8rem;
+  border-radius: 100px;
+}
+.buscador > *{
+  background-color: var(--color-200);
+
+}
+
+.search{
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-700);
+  
+}
+.search:focus,
+.search:active{
+  border:none;
+  outline: none;
+
+ 
+}
+footer{
+  width: 100vw;
+  height: 80px;
+  background-color: var(--color-700);
+  color: var(--color-200);
+
+
+}
