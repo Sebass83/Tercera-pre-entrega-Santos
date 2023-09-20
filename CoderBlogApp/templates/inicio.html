@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load static %} {% block main %}
+<main class="card-container">
+  <div class="card">
+    <div class="card-top">
+      <div class="min-img-card">
+        <img
+          src="https://t3.ftcdn.net/jpg/02/88/80/38/240_F_288803822_0CJ8L3gr6w6nGnUeje6pCllCX7s986xz.jpg"
+          alt=""
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <h2>Titulo del blog</h2>
+        </div>
+        <div class="card-description">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. At animi
+          laborum inventore omnis, nostrum optio ea sapiente voluptates minima
+          voluptatem repellendus dicta cumque neque voluptate, ipsa facere cum!
+          Illo, molestiae?
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div>Autor: @name</div>
+      <div>Creation date: 26/08/2023</div>
+      <div>Slug: titulo_del_blog</div>
+    </div>
+  </div>
+</main>
+{% endblock %}

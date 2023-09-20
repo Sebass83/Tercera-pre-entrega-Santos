@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% load static %} {% block main %}
+
+<main class="container">
+  <form method="post" class="create-post">
+    {% csrf_token %}
+    <div>
+      <label for="title">Titulo:</label>
+      <input type="text" name="title" />
+    </div>
+    <div>
+      <label for="description">Descripcion:</label>
+      <input type="text" name="description" />
+    </div>
+    <div>
+      <label for="author">Autor:</label>
+      <input type="text" name="author" />
+    </div>
+    <div>
+      <label for="min_img_url">URL Miniatura:</label>
+      <input type="url" name="min_img_url" />
+    </div>
+    <div>
+      <label for="post">Contenido del post:</label>
+      <input type="text" name="post" />
+    </div>
+    <div>
+      <label for="hero_img_url">URL de la imagen principal:</label>
+      <input type="url" name="hero_img_url" />
+    </div>
+    <div>
+      <label for="quote">Cita dentro del post:</label>
+      <input type="text" name="quote" />
+    </div>
+    <div>
+      <label for="acent_img_url">Imagen de refuerzo:</label>
+      <input type="text" name="acent_img_url" />
+    </div>
+    <div>
+      <input type="submit" value="Enviar" />
+    </div>
+  </form>
+</main>
+
+{% endblock %}
