@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import *
 
@@ -5,7 +6,11 @@ from .models import *
 
 
 def inicio(request):
-    return render(request, "inicio.html")
+    cards = BlogSummary.objects.all()
+
+
+
+    return render(request, "inicio.html", {"cards": cards})
 
 
 def crear_post(request):
@@ -37,21 +42,31 @@ def crear_post(request):
     return render(request, "crear_post.html")
 
 
-# class BlogSummary(models.Model):
-#     titles = models.CharField(max_length=200, unique=True)
-#     description = models.CharField(max_length=200)
-#     author = models.CharField(max_length=200)
-#     entryDate = models.DateField(auto_now_add=True)
-#     min_img_url= models.URLField()
+        
+def post(request):
+    if request.GET['termino']:
+        termino = request.GET['termino']
+        print(termino)
+
+        try:
+            
+            summary = BlogSummary.objects.get(title=termino)
+            
+        except Exception as e:
+            if type(e).__name__ == 'DoesNotExist':
+                return render(request, "post.html",{'error': f'No se encontro el post con el Titulo \"{termino}\"'})
+        
+        if summary:
+                print(summary.id)
+                return render(request, "post.html")
+
+        
 
 
-# class Blog(models.Model):
-#     post = models.CharField(max_length=200)
-#     hero_img_url = models.URLField
-#     quote = models.CharField(max_length=30)
-#     acent_img_url= models.URLField()
+        summary = BlogSummary.objects.get(title=termino)
+        if summary:
+            print(summary.id)
+            return render(request, "post.html")
+       
+    return render(request, "inicio.html")
 
-# class EntryBlogData(models.Model):
-#     author = models.CharField(max_length=200)
-#     entryDate = models.DateField(auto_now_add=True)
-#     slug = models.CharField(max_length=200, unique=True)

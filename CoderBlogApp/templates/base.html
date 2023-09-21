@@ -12,12 +12,14 @@
       <div class="logo">CoderBlog</div>
       <div class="menu">
         <ul>
-          <li>inicio</li>
-          <li>Crear entrada</li>
+          <li><a href="{% url 'inicio' %}">inicio</a></li>
+          <li><a href="{% url 'crear_post' %}">Crear entrada</a></li>
         </ul>
       </div>
       <div class="buscador">
-        <input class="search" type="text" /><button>🔍</button>
+        <form action="{% url 'post' %}" method="get"> 
+        <input class="search" type="text" name="termino" required placeholder="Buscar por titulo"/><button type="submit">🔍</button>
+      </form>
       </div>
     </nav>
     {% block main %}
