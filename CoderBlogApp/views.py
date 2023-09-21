@@ -56,17 +56,12 @@ def post(request):
             if type(e).__name__ == 'DoesNotExist':
                 return render(request, "post.html",{'error': f'No se encontro el post con el Titulo \"{termino}\"'})
         
-        if summary:
-                print(summary.id)
-                return render(request, "post.html")
-
-        
-
-
         summary = BlogSummary.objects.get(title=termino)
-        if summary:
-            print(summary.id)
-            return render(request, "post.html")
+        blog  = Blog.objects.get(id=summary.id)
+        data =EntryBlogData.objects.get(id=summary.id)
+        print("idpost: ",blog.id)
+  
+        return render(request, "post.html",{'summary': summary, 'blog': blog,'data': data})
        
     return render(request, "inicio.html")
 

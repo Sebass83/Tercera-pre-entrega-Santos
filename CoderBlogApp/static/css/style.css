@@ -175,3 +175,15 @@ footer {
   padding: var(--p-05);
 
 }
+article{
+  width: 80vw;
+  height: 100vh;
+}
+
+.post{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+
