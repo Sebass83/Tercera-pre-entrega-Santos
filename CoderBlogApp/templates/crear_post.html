@@ -5,15 +5,15 @@
     {% csrf_token %}
     <div>
       <label for="title">Titulo:</label>
-      <input type="text" name="title" />
+      <input type="text" name="title" required />
     </div>
     <div>
       <label for="description">Descripcion:</label>
-      <input type="text" name="description" />
+      <input type="text" name="description" required/>
     </div>
     <div>
       <label for="author">Autor:</label>
-      <input type="text" name="author" />
+      <input type="text" name="author" required/>
     </div>
     <div>
       <label for="min_img_url">URL Miniatura:</label>
@@ -21,7 +21,7 @@
     </div>
     <div>
       <label for="post">Contenido del post:</label>
-      <input type="text" name="post" />
+      <input type="text" name="post" required/>
     </div>
     <div>
       <label for="hero_img_url">URL de la imagen principal:</label>

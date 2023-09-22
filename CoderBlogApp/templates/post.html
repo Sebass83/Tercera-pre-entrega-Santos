@@ -1,21 +1,25 @@
-{% extends "base.html" %} {% load static %} {% block main %} {% if error%} {{
-error }} {% endif %}
+{% extends "base.html" %} {% load static %} {% block main %} {% if error%} 
+{{error }}
+{% else %}
 <main class="post">
   <article>
     {% if blog.hero_img_url %}
-    <img src="{{blog.hero_img_url}}" alt="{{summary.title}}" />
+    <div class="hero_img_url">
+      <img src="{{blog.hero_img_url}}" alt="{{summary.title}}" />
+    </div>
     {% endif %}
     <h1>{{summary.title}}</h1>
-    <div class="data">{{data.author}} {{data.entryDate}}</div>
+    <div class="data">Autor: {{data.author}} - {{data.entryDate}}</div>
     <p>{{blog.post}}</p>
     <blockquote>
-    {% if blog.acent_img_url %}
+      {% if blog.acent_img_url %}
       <img src="{{blog.acent_img_url}}" alt="{{summary.title}}" />
-    {% endif %}
-      {{blog.quote}}
+      {% endif %} 
+      <span>{{blog.quote}}</span>
     </blockquote>
   </article>
 </main>
+{% endif %}
 {% endblock %}
 
 <!-- 
