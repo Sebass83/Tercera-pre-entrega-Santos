@@ -1,9 +1,7 @@
 from CoderBlogApp.models import *
 from django.shortcuts import render
 
-
 def helperPostRequest(request, termino):
-    #
     if termino.startswith("@"):
         termino = termino.replace("@", "")
         print({"termino": termino})
@@ -15,7 +13,7 @@ def helperPostRequest(request, termino):
                 return render(
                     request,
                     "post.html",
-                    {"error": f'No se encontro el post con el Titulo "{data}"'},
+                    {"error": f'No se encontró el post con el Slug "{data}"'},
                 )
         summary = BlogSummary.objects.get(id=data.id)
         blog = Blog.objects.get(id=data.id)
@@ -23,7 +21,6 @@ def helperPostRequest(request, termino):
         return render(
             request, "post.html", {"summary": summary, "blog": blog, "data": data}
         )
-        #
     termino = request.GET["termino"]
     try:
         summary = BlogSummary.objects.get(title=termino)
@@ -33,7 +30,7 @@ def helperPostRequest(request, termino):
             return render(
                 request,
                 "post.html",
-                {"error": f'No se encontro el post con el Titulo "{termino}"'},
+                {"error": f'No se encontró el post con el Titulo "{termino}"'},
             )
 
     blog = Blog.objects.get(id=summary.id)
@@ -42,6 +39,8 @@ def helperPostRequest(request, termino):
     return render(
         request, "post.html", {"summary": summary, "blog": blog, "data": data}
     )
+
+
 
 def helperNewPost(request):
     if request.method == "POST":
@@ -69,7 +68,8 @@ def helperNewPost(request):
         )
         EntryBlogData.objects.create(author=author, slug=slug)
 
-def getAllPosts(request):
+
+def helperGetAllPosts(request):
     cards = BlogSummary.objects.all()
     data = EntryBlogData.objects.all()
     return render(request, "inicio.html", {"cards": cards, "data": data})

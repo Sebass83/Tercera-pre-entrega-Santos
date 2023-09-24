@@ -35,7 +35,7 @@ donde están las funcionalidades.
 
 # Para ejecutar la APP:
 
-1. ###  Si no tiene instalado Django, instalelo:
+1. ###  Si no tiene instalado Django, instálelo:
 ```
 pip install django
 ```
@@ -43,8 +43,146 @@ pip install django
 ```
 python manage.py migrate
 ```
-3. ###  Ejecutar la aplicacion:
+3. ###  Ejecutar la aplicación:
 ```
 python manage.py runserver
 ```
+
+# Como funciona la aplicación:
+
+```TercerPreEntrega``` es la proyecto y en el se encuentra el punto de entrada mediante su archivo ```urls.py```.
+```urls.py``` no solo muestra las urls de ```TercerPreEntrega```, a su vez incluye las de ```CoderBlogApp```
+
+La aplicación ```CoderBlogApp``` implementa MVT(Model - View - Template), en esta nos encontraremos con los siguientes apartados a tratar:
+
+## 1. models.py:
+
+Aquí se encuentran los ```Modelos``` que se utilizaran para persistir los datos en la base de datos.
+### BlogSummary:
+
+>```title```
+
+>```description```
+
+>```author```
+
+>```entryDate```
+
+>```min_img_url```
+
+### Blog:
+
+>```post```
+
+>```hero_img_url```
+
+>```quote```
+
+>```acent_img_url```
+
+### EntryBlogData
+
+>```author```
+
+>```entryDate```
+
+>```slug```
+
+## 2. urls.py:
+
+Punto de entrada para las urls correspondientes a ```CoderBlogApp```
+
+
+## 3. Templates:
+>### 1. base.html.
+Este se usa para la ```herencia de HTML``` es el template base.
+El mismo se encuentra separado en tres partes:
+
+1. nav:
+   > Aquí encontraran  el "Logo", la Navegación y el Formulario para la búsqueda, este ultimo busca por ```title``` en la base de datos y retorna el post con ```title```
+2. block main
+   > Bloque de entrada dinámica.
+3. footer
+   > Pie de pagina.
+>### 2. inicio.html. 
+ >ingresa la estructura al bloque dinámico lo necesario para mostrar en la ```vista```, específicamente la estructura HTML y el JS para poder dar función a las tarjetas.
+
+
+>### 3. post.html.
+  >ingresa la estructura al bloque dinámico lo necesario para mostrar en la ```vista```
+  , específicamente la estructura HTML para poder ver un post en particular.
+
+
+>### 4. crear_post.html.
+  >ingresa la estructura al bloque dinámico lo necesario para mostrar en la ```vista```, específicamente el formulario para crear nuevos post.
+
+
+## 4. Vistas:
+Consta de tres funciones usando los ```helpers``` son los encargados de retornar cada vista.
+
+1. ```inicio``` usando ```helperGetAllPosts``` obtiene todos los post y los muestra en la vista.
+2. ```crear_post``` usando ```helperNewPost``` mediante el formulario que se encuentra en la vista persiste el nuevo post en la base de datos
+3. ```post``` usando ```helperPostRequest``` es es el encargado de mostrar en la vista un post en particular, ya sea si este viene desde la búsqueda realizada mediante el formulario o si viene por hacer click en una card
+
+## 5. Helpers
+```helperGetAllPosts```:
+
+>```helperGetAllPosts``` es la función encargada de realizar las búsquedas según un termino dado.
+
+### El Termino de búsqueda puede tener dos orígenes distintos:
+
+>1- Este viene desde el formulario de búsqueda que se encuentra 
+en el template base, en este caso solo busca por titulo.
+
+>2- Este viene desde las card del inicio, gracias al cards.js.
+Al hacer click en la card utiliza el atributo data en la misma 
+y redirige a la locación de busque usando como termino el atributo 
+data anteponiendo un "@"
+
+>Si el termino de busque comienza con "@" el código asume que se esta
+buscando por slug, hace la búsqueda y retorna los resultados.
+
+>Si el termino de busque no comienza con "@" el código asume que se esta
+buscando por title, hace la búsqueda y retorna los resultados.
+
+
+```helperNewPost```:
+>```helperNewPost``` es el encargado de persistir la data en la db para los siguientes modelos:
+
+>```BlogSummary```:
+  
+  > title
+
+  > description
+  
+  > author
+  
+  > entryDate
+  
+  > min_img_url
+
+>```Blog```:
+
+  >post
+
+  >hero_img_url
+  
+  >quote
+  
+  >acent_img_url
+
+>```EntryBlogData```:
+  
+  >author
+  
+  >entryDate
+  
+  >slug
+
+```helperPostRequest```
+```helperGetAllPosts``` es la función encargada de traer todo lo necesario para mostrar la vista inicio mediante su correspondiente template, esta trae todos los datos necesarios desde la base de datos.
+
+
+
+
 

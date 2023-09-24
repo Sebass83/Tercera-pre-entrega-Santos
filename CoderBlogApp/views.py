@@ -5,7 +5,7 @@ from CoderBlogApp.helpers.helpers import *
 
 
 def inicio(request):
-    return getAllPosts(request)
+    return helperGetAllPosts(request)
 
 
 def crear_post(request):

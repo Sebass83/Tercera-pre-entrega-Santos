@@ -2,12 +2,10 @@
   --color-200: hsl(246, 8%, 80%);
   --color-500: hsl(246, 8%, 50%);
   --color-700: hsl(246, 8%, 20%);
+  --bg-dark: hsl(246, 8%, 30%);
   --acent-color-200: hsl(345, 54%, 80%);
-  --acent-color-500: hsl(345, 54%, 50%);
   --acent-color-700: hsl(345, 54%, 30%);
-  --Complement-acent-color-200: hsl(142, 22%, 80%);
   --Complement-acent-color-500: hsl(142, 22%, 50%);
-  --Complement-acent-color-700: hsl(142, 22%, 30%);
   --p-05: 0.5rem;
 }
 
@@ -28,7 +26,7 @@ h5 {
   vertical-align: baseline;
 }
 body {
-  background-color: var(--color-200);
+  background-color: var(--bg-dark);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 h1 {
