@@ -1,6 +1,7 @@
 from CoderBlogApp.models import *
 from django.shortcuts import render
 
+
 def helperPostRequest(request, termino):
     if termino.startswith("@"):
         termino = termino.replace("@", "")
@@ -41,7 +42,6 @@ def helperPostRequest(request, termino):
     )
 
 
-
 def helperNewPost(request):
     if request.method == "POST":
         title = request.POST["title"]
@@ -73,4 +73,3 @@ def helperGetAllPosts(request):
     cards = BlogSummary.objects.all()
     data = EntryBlogData.objects.all()
     return render(request, "inicio.html", {"cards": cards, "data": data})
-
