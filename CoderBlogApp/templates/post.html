@@ -1,6 +1,5 @@
-{% extends "base.html" %} {% load static %} {% block main %} {% if error%} 
-{{error }}
-{% else %}
+{% extends "base.html" %} {% load static %} {% block main %} {% if error%}
+{{error }} {% else %}
 <main class="post">
   <article>
     {% if blog.hero_img_url %}
@@ -14,28 +13,9 @@
     <blockquote>
       {% if blog.acent_img_url %}
       <img src="{{blog.acent_img_url}}" alt="{{summary.title}}" />
-      {% endif %} 
+      {% endif %}
       <span>{{blog.quote}}</span>
     </blockquote>
   </article>
 </main>
-{% endif %}
-{% endblock %}
-
-<!-- 
-        BlogSummary.objects.create(
-            title=title,
-            description=description,
-            author=author,
-            min_img_url=min_img_url,
-        )
-        Blog.objects.create(
-            post=post,
-            quote=quote,
-            acent_img_url=acent_img_url,
-            hero_img_url=hero_img_url
-        )
-        EntryBlogData.objects.create(author=author, slug=slug)
-
-
- -->
+{% endif %} {% endblock %}

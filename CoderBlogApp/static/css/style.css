@@ -77,13 +77,12 @@ nav a:hover {
 }
 
 ul {
-
   display: flex;
   gap: 1rem;
   list-style: none;
   justify-content: space-evenly;
 }
-li{
+li {
   min-width: fit-content;
 }
 
@@ -130,7 +129,6 @@ li{
   cursor: pointer;
   transition: all 300ms ease;
   background-color: #fff;
-  
 }
 .card:hover {
   box-shadow: 0px 9px 77px -32px var(--color-500);
@@ -153,6 +151,7 @@ li{
 }
 
 .card-footer {
+  margin-top: 1rem;
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -191,7 +190,8 @@ footer {
   width: 80%;
 }
 
-.create-post input,.create-post textarea {
+.create-post input,
+.create-post textarea {
   border: 1px solid var(--acent-color-700);
   border-radius: 6px;
   padding: var(--p-05);
@@ -241,7 +241,7 @@ blockquote img {
 
 .hero_img_url > img {
   width: 100%;
-  height: 300px;
+  height: auto;
   object-fit: cover;
 }
 .data {
@@ -253,4 +253,40 @@ span {
   width: 30ch;
   font-size: 1.5rem;
   color: var(--Complement-acent-color-500);
+}
+
+@media (max-width: 532px) {
+  nav{
+    display: flex;
+    flex-direction: column;
+  }
+  blockquote {
+    display: flex;
+    flex-direction: column;
+  }
+  blockquote img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+  }
+  span {
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--Complement-acent-color-500);
+  }
+  article {
+    width: 100%;
+    padding: 1em;
+  }
+  .card-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    width: 100%;
+    padding: 1em;
+    align-content: center;
+  }
+  
+  /* … */
 }

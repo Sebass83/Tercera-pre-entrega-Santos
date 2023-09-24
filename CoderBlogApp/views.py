@@ -32,33 +32,34 @@ def crear_post(request):
             post=post,
             quote=quote,
             acent_img_url=acent_img_url,
-            hero_img_url=hero_img_url
+            hero_img_url=hero_img_url,
         )
         EntryBlogData.objects.create(author=author, slug=slug)
 
     return render(request, "crear_post.html")
 
 
-        
 def post(request):
-    if request.GET['termino']:
-        termino = request.GET['termino']
+    if request.GET["termino"]:
+        termino = request.GET["termino"]
         print(termino)
 
         try:
-            
             summary = BlogSummary.objects.get(title=termino)
-            
-        except Exception as e:
-            if type(e).__name__ == 'DoesNotExist':
-                return render(request, "post.html",{'error': f'No se encontro el post con el Titulo \"{termino}\"'})
-        
-        summary = BlogSummary.objects.get(title=termino)
-        blog  = Blog.objects.get(id=summary.id)
-        data =EntryBlogData.objects.get(id=summary.id)
-        print("post\n ",blog.post)
-  
-        return render(request, "post.html",{'summary': summary, 'blog': blog,'data': data})
-       
-    return render(request, "inicio.html")
 
+        except Exception as e:
+            if type(e).__name__ == "DoesNotExist":
+                return render(
+                    request,
+                    "post.html",
+                    {"error": f'No se encontro el post con el Titulo "{termino}"'},
+                )
+
+        blog = Blog.objects.get(id=summary.id)
+        data = EntryBlogData.objects.get(id=summary.id)
+
+        return render(
+            request, "post.html", {"summary": summary, "blog": blog, "data": data}
+        )
+
+    return render(request, "inicio.html")

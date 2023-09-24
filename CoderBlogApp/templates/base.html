@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CoderBlog</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
@@ -17,13 +18,18 @@
         </ul>
       </div>
       <div class="buscador">
-        <form action="{% url 'post' %}" method="get"> 
-        <input class="search" type="text" name="termino" required placeholder="Buscar por titulo"/><button type="submit">🔍</button>
-      </form>
+        <form action="{% url 'post' %}" method="get">
+          <input
+            class="search"
+            type="text"
+            name="termino"
+            required
+            placeholder="Buscar por titulo"
+          /><button type="submit">🔍</button>
+        </form>
       </div>
     </nav>
-    {% block main %}
-    {% endblock %}
+    {% block main %} {% endblock %}
     <footer>footer</footer>
   </body>
 </html>
