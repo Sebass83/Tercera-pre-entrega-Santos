@@ -2,7 +2,9 @@
 
 <main class="card-container">
   {% for card in cards %}
-  <div class="card" data="{{card.title}}">
+  {% for slug in data %}
+  {% if slug.id == card.id %}
+  <div class="card" data="{{slug.slug}}">
     <div class="card-top">
       {% if card.min_img_url %}
       <div class="min-img-card">
@@ -21,6 +23,8 @@
       <div>Creation date: {{card.entryDate}}</div>
     </div>
   </div>
+  {% endif%}
+  {% endfor %}
   {% endfor %}
 </main>
 <script src="{% static 'cards.js' %}"></script>
