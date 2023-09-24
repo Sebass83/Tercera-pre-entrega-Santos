@@ -1,7 +1,7 @@
 :root {
   --color-200: hsl(246, 8%, 80%);
   --color-500: hsl(246, 8%, 50%);
-  --color-700: hsl(246, 8%, 30%);
+  --color-700: hsl(246, 8%, 20%);
   --acent-color-200: hsl(345, 54%, 80%);
   --acent-color-500: hsl(345, 54%, 50%);
   --acent-color-700: hsl(345, 54%, 30%);
@@ -18,8 +18,7 @@ h1,
 h2,
 h3,
 h4,
-h5
-{
+h5 {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -27,6 +26,29 @@ h5
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+}
+body {
+  background-color: var(--color-200);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+h1 {
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--color-700);
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-700);
+  padding: 0 1rem;
+}
+p {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 150%;
+  margin-bottom: 24px;
+  color: var(--color-500);
 }
 
 nav {
@@ -39,43 +61,47 @@ nav {
   color: var(--color-200);
 }
 
-nav a{
+nav a {
   text-decoration: none;
   color: var(--color-200);
   transition: all 300ms ease;
-
 }
-nav a:hover{
+nav a:hover {
   text-decoration: underline;
-  color: var(--Complement-acent-color-200)
-
+  color: var(--Complement-acent-color-200);
 }
 
 .logo {
+  font-size: 38px;
   flex: 1;
 }
 
 ul {
+
   display: flex;
   gap: 1rem;
   list-style: none;
   justify-content: space-evenly;
 }
+li{
+  min-width: fit-content;
+}
 
 .buscador {
+  min-width: fit-content;
   align-items: center;
-  background-color: var(--color-200);
-  padding: var(--p-05) 0.8rem;
+  background-color: #fff;
+  padding: 0.4rem 0.8rem;
   border-radius: 100px;
 }
 .buscador * {
-  background-color: var(--color-200);
+  background-color: #fff;
 }
 
 .search {
   font-size: 16px;
-  font-weight: 700;
-  color: var(--color-700);
+  font-weight: 400;
+  color: var(#fff);
 }
 .search:focus,
 .search:active {
@@ -86,11 +112,11 @@ ul {
 .card-container {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill,minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   padding: 1rem;
-  align-items: center;
-  justify-items: center;
-  width: 100vw;
+  width: 99vw;
+  min-height: 85vh;
+  justify-content: space-between;
 }
 
 .card {
@@ -99,32 +125,30 @@ ul {
   display: flex;
   flex-direction: column;
   max-width: 500px;
+  height: fit-content;
   overflow: hidden;
   cursor: pointer;
   transition: all 300ms ease;
+  background-color: #fff;
+  
 }
 .card:hover {
   box-shadow: 0px 9px 77px -32px var(--color-500);
   transform: scale(1.01);
 }
 
-.card-title > h2 {
-  font-size: 2.3rem;
-  color: var(--color-700);
-}
-
 .card-top {
   display: flex;
   gap: 1rem;
+  flex-direction: column;
 }
 .card-description {
-  padding: var(--p-05);
+  padding: 1rem;
   color: var(--color-500);
 }
 
 .min-img-card > img {
-  width: 200px;
-  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -139,7 +163,7 @@ ul {
 
 footer {
   display: grid;
-  width: 100vw;
+  width: 100%;
   height: 80px;
   background-color: var(--color-700);
   color: var(--color-200);
@@ -164,67 +188,69 @@ footer {
   padding: var(--p-05);
   gap: 1rem;
   border-radius: 1rem;
+  width: 80%;
 }
 
-.create-post input {
+.create-post input,.create-post textarea {
   border: 1px solid var(--acent-color-700);
-  border-radius: 1rem;;
+  border-radius: 6px;
   padding: var(--p-05);
   color: var(--color-700);
   font-weight: 700;
 }
 
 .create-post div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: var(--p-05);
-
 }
-article{
+.create-post button {
+  background-color: var(--Complement-acent-color-500);
+}
+.btn-green {
+  background-color: var(--Complement-acent-color-200);
+  transition: all 300ms ease;
+}
+
+.btn-green:hover {
+  background-color: var(--Complement-acent-color-500);
+}
+article {
   width: 80vw;
 }
 
-.post{
+.post {
   display: grid;
   align-items: center;
   justify-items: center;
+  background-color: #fff;
 }
 
-.post p{
-  font-size: 2rem;
-  color: var(--color-500);
-}
-blockquote{
+blockquote {
   display: flex;
   gap: 1rem;
   padding: 2rem 0;
-  
 }
 
-blockquote img{
+blockquote img {
   object-fit: cover;
   height: auto;
   width: 50%;
 }
 
-.post h1{
-  margin-top: 1rem;
-  font-size: 6rem;
-  color: var(--color-700);
-  
-}
-
-.hero_img_url>img{
+.hero_img_url > img {
   width: 100%;
   height: 300px;
   object-fit: cover;
 }
-.data{
-  margin: 2rem 0;
-  font-size: 2rem;
+.data {
+  margin: 0rem 0 2rem 0;
+  font-size: 1rem;
   color: var(--acent-color-200);
 }
-span{
+span {
   width: 30ch;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   color: var(--Complement-acent-color-500);
 }
-

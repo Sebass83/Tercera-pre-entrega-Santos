@@ -7,9 +7,6 @@ from .models import *
 
 def inicio(request):
     cards = BlogSummary.objects.all()
-
-
-
     return render(request, "inicio.html", {"cards": cards})
 
 
@@ -59,7 +56,7 @@ def post(request):
         summary = BlogSummary.objects.get(title=termino)
         blog  = Blog.objects.get(id=summary.id)
         data =EntryBlogData.objects.get(id=summary.id)
-        print("idpost: ",blog.id)
+        print("post\n ",blog.post)
   
         return render(request, "post.html",{'summary': summary, 'blog': blog,'data': data})
        

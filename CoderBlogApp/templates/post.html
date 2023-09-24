@@ -10,7 +10,7 @@
     {% endif %}
     <h1>{{summary.title}}</h1>
     <div class="data">Autor: {{data.author}} - {{data.entryDate}}</div>
-    <p>{{blog.post}}</p>
+    <p>{{blog.post | linebreaksbr |safe}}</p>
     <blockquote>
       {% if blog.acent_img_url %}
       <img src="{{blog.acent_img_url}}" alt="{{summary.title}}" />
